@@ -1,0 +1,30 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "this is going to be a to-do list website done in JS,",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanalexa25/To-Do-List.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stefanalexa25/To-Do-List/issues"
+  },
+  "homepage": "https://github.com/stefanalexa25/To-Do-List#readme",
+  "dependencies": {
+    "@prisma/client": "^6.19.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "prisma": "^6.19.0"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2"
+  }
+}
