@@ -1,0 +1,23 @@
+.edit-button {
+  margin-left: 2px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background: #bfd1ff;
+}
+
+.clasic-button{
+  background: none;
+  border: 2;
+  border-radius: 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.clasic-button:hover {
+  background: #bfd1ff;
+}

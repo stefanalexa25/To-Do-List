@@ -161,6 +161,24 @@ app.post("/api/lists/:listId/todos", requireAuth, async (req, res) => {
   res.json(todo);
 });
 
+app.get("/api/lists/:listId/todos", requireAuth, async (req, res) => {
+  const listId = Number(req.params.listId);
+  const user = await prisma.user.findUnique({
+    where: { username: req.session.user.name }
+  });
+  const list = await prisma.list.findUnique({
+    where: { id: listId },
+    include: {collaborators: true, todos: true}
+  });
+  if (!list) return res.status(404).json({ error: "list_not_found" });
+  const isOwner = list.ownerId === user.id;
+  const isCollaborator = list.collaborators.some(c => c.id === user.id);
+  if (!isOwner && !isCollaborator)
+    return res.status(403).json({ error: "forbidden" });
+  res.json(list.todos);
+});
+
+
 app.patch("/api/todos/:id", requireAuth, async (req, res) => {
   const todoId = Number(req.params.id);
   const { title, completed } = req.body;
