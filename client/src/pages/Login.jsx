@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/Login.css";
+
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -24,8 +26,8 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="login-page">
+      <div className="login-header"><h1>Login</h1></div>
       <form onSubmit={handleLogin}>
         <input 
           placeholder="Username" 

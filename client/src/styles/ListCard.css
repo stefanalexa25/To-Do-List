@@ -1,13 +1,288 @@
-.list-card {
-  border: 1px solid #f5f5f5;
-  padding: 12px;
-  border-radius: 6px;
-  margin-bottom: 10px;
+body{
+  background: #c7f2fa;
+}
+
+.lists-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 30px 60px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #253454;
+  background: #c7f2fa;
+}
+
+.lists-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.lists-header h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 60px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.lists-page h2 {
+  margin: 22px 0 10px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #253454;
+  text-transform: uppercase;
+}
+
+.logout-button {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  padding: 6px 12px;
   cursor: pointer;
+  border: 1px solid #fe9b9b;
+  background: linear-gradient(135deg, #ffffff -10%, #fac7c7 100%);
+  color: #253454;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 100ms ease, border-color 100ms ease;
+}
+
+.logout-button:hover {
+  border-color: #fe9b9b;
+  background: linear-gradient(135deg, #fac7c7 -10%, #f35f5f 80%);
+  transform: translateY(-1px);
+}
+
+.logout-button:active {
+  transform: translateY(0);
+}
+
+.lists-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.list-card {
   width: 250px;
-  transition: background 0.2s;
+  margin-bottom: 10px;
+  border-radius: 16px;
+  padding: 14px 14px;
+  cursor: pointer;
+  transition: transform 100ms ease, border-color 100ms ease;
 }
 
 .list-card:hover {
-  background: #bfd1ff;
+  transform: translateY(-2px);
+  border-color: #e5e7eb;
 }
+
+.list-card-owned {
+  position: relative;
+  border: 1px solid #91b5ff;
+  background: linear-gradient(135deg, #ffffff 20%, #c7d5fa 100%);
+}
+
+.list-card-owned:hover{
+  background: linear-gradient(135deg, #ffffff 0%, #517fff 100%);
+}
+
+.list-card-owned::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 4px;
+  border-radius: 999px;
+  background: #3b82f6;
+}
+
+.list-card-collab {
+  position: relative;
+  border: 1px solid #91ff93;
+  background: linear-gradient(135deg, #ffffff 20%, #c7fac9 100%);
+}
+
+.list-card-collab:hover{
+  background: linear-gradient(135deg, #ffffff -10%, #2ec533 100%);
+}
+
+.list-card-collab::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 4px;
+  border-radius: 999px;
+  background: #10b981;
+}
+
+.list-view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-left: 10px;
+}
+
+.list-name {
+  font-size: 16px;
+  font-weight: 750;
+  color: #253454;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-edit-button,
+.list-delete-button {
+  border: 1px solid #91b5ff;
+  background: linear-gradient(135deg, #ffffff 50%, #c7d5fa 100%);
+  width: 38px;
+  height: 34px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 100ms ease, border-color 100ms ease;
+}
+
+.list-edit-button:hover,
+.list-delete-button:hover {
+  border-color: #c7fac9;
+  background: linear-gradient(180deg, #ffffff 0%, #c7fac9 100%);
+  transform: translateY(-1px);
+}
+
+.list-delete-button:hover {
+  border-color: #fecaca;
+  background: linear-gradient(135deg, #ffffff 0%, #fac7c7 100%);
+}
+
+/**/
+
+.list-edit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 10px; 
+  flex-wrap: wrap;
+}
+
+.list-edit-input {
+  flex: 1 1 70%;
+  min-width: 200px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.list-edit-save,
+.list-edit-cancel {
+  flex-shrink: 0;
+  white-space: nowrap;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 750;
+  cursor: pointer;
+  border: 1px solid #e5e7eb;
+  transition: transform 100ms ease, border-color 100ms ease;
+}
+
+.list-edit-save {
+  background: #253454;
+  color: #c7d5fa;
+  border-color: #253454;
+}
+
+.list-edit-save:hover {
+  transform: translateY(-1px);
+  background: #3296f9;
+  color: #253454;
+  border-color: #3296f9;
+  transition: transform 100ms ease, border-color 100ms ease;
+}
+
+.list-edit-cancel {
+  background: #ffffff;
+  color: #253454;
+}
+
+.list-edit-cancel:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #ffffff -20%, #fac7c7 100%);
+}
+
+.add-list {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid #eef2f7;
+  background: linear-gradient(165deg, #ffffff -10%, #517fff 150%);
+  gap: 5px;
+}
+
+.add-list-input {
+  flex: 1;
+  border: none;
+  background: #ffffff00;
+  border-radius: 12px;
+  padding: 10px 12px ;
+  font-size: 20px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 800;
+  text-align: center;
+}
+
+.add-list-button {
+  border: 1px solid #253454;
+  background: #253454;
+  color: #c7d5fa;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 120ms ease;
+  white-space: nowrap;
+}
+
+.add-list-button:hover {
+  transform: translateY(-1px);
+  background: #3296f9;
+  color: #253454;
+  border-color: #3296f9;
+  transition: transform 100ms ease, border-color 100ms ease;
+}
+
+.add-list-button:active {
+  transform: translateY(0);
+}
+
+

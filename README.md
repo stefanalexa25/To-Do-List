@@ -10,3 +10,7 @@ Created Prisma models for: User, List, ToDo
 ## Second Commit
 
 Created CRUD API's for List and ToDo
+
+# Login credentials:
+
+test:1234
