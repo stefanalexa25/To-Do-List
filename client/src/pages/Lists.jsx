@@ -133,8 +133,10 @@ async function logout() {
           ) : (
             <div className="list-view">
               <span className="list-name">{list.name}</span>
-              <button className="list-edit-button" onClick={(e) => startEdit(list, e)}>✏️</button>
-              <button className="list-delete-button" onClick={(e) => deleteList(list.id, e)}>🗑️</button>
+              <div className="list-actions">
+                <button className="list-edit-button" onClick={(e) => startEdit(list, e)}>Edit ✏️</button>
+                <button className="list-delete-button" onClick={(e) => deleteList(list.id, e)}>Delete 🗑️</button>
+              </div>
             </div>
           )}
         </div>

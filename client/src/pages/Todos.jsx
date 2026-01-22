@@ -116,7 +116,7 @@ export default function Todos() {
   return (
   <div className="todos-page">
     <h1 className="todos-title">Todos for list {listName || id}</h1>
-    <button className="back-to-lists" type="button" onClick={() => navigate("/lists")}>⬅Lists</button>
+    <button className="back-to-lists" type="button" onClick={() => navigate("/lists")}>⬅ Lists</button>
     {todos.length === 0 && <p className="todos-empty">No todos yet.</p>}
     <div className="todos-container">
       {todos.map((todo) => (
@@ -139,15 +139,8 @@ export default function Todos() {
     </div>
 
     <form className="todo-add" onSubmit={addTodo}>
-      <input
-        className="todo-add-input"
-        value={newTodo}
-        onChange={(e) => setNewTodo(e.target.value)}
-        placeholder="Add a todo..."
-      />
-      <button className="todo-add-button" type="submit">
-        Add
-      </button>
+      <input className="todo-add-input" value={newTodo} onChange={(e) => setNewTodo(e.target.value)} placeholder="Add a todo..."/>
+      <button className="todo-add-button" type="submit">Add</button>
     </form>
   </div>
 );
